@@ -3,6 +3,7 @@ import Loadable from "../utils/loadable";
 import { Layouts } from "../layouts";
 
 // owner page
+const Home = Loadable(lazy(() => import("../pages/home")))
 const Notfound = Loadable(lazy(() => import("../pages/not-found")));
 
 const Routes = () => {
@@ -10,7 +11,12 @@ const Routes = () => {
     {
       path: "/",
       element: <Layouts />,
-      children: [],
+      children: [
+        {
+          path: "/",
+          element: <Home />
+        }
+      ],
     },
     {
       path: "*",

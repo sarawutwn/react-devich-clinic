@@ -2,30 +2,9 @@ import { Col, Dropdown, MenuProps, Row, Space, Typography } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import axios from "axios";
-import { GET_PROFILE } from "../../endpoint";
-import store from "../../redux/store";
-import { useEffect } from "react";
 
 const DropdownHeader = (props: any) => {
   const navigate = useNavigate();
-
-  const fetchData = async () => {
-    try {
-      const { data } = await axios.get(GET_PROFILE);
-      if (data.status === "success") {
-        store.dispatch({ type: "SET_PROFILE", payload: data.result });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    if (props.profile.user_id === "") {
-      fetchData();
-    }
-  }, []);
 
   const items: MenuProps["items"] = [
     {
