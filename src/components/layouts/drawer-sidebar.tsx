@@ -1,4 +1,4 @@
-import { Drawer, Menu, Row, Typography } from "antd";
+import { Drawer, Menu, Row } from "antd";
 import {
   PieChartOutlined,
   AppstoreOutlined,

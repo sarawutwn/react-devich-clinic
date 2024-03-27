@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MenuUnfoldOutlined } from "@ant-design/icons";
-import { Col, Layout, Row, Typography, theme } from "antd";
+import { Col, Layout, Row, theme } from "antd";
 import { Outlet, useLocation } from "react-router-dom";
 import DropdownHeader from "../components/layouts/dropdown-headers";
 import MenuHeaders from "../components/layouts/menu-headers";
