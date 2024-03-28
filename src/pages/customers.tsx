@@ -17,7 +17,7 @@ export default function Customers() {
         if (data.status === "success") {
           let result: any = [{ value: "", label: "ไม่ได้มาจาก ads" }];
           for (let item of data.result) {
-            await result.push({ value: item.ads_id, label: item.ads_name });
+            await result.push({ key: item.ads_id, value: item.ads_name });
           }
           setAds(result);
         }
