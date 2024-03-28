@@ -38,7 +38,7 @@ function App() {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: "#ff725c",
+            colorPrimary: "#f88d87",
             colorBgContainer: "#ffffff",
             // fontFamily: "'IBM Plex Sans Thai', 'Poppins', Arial, sans-serif",
             fontFamily: "'IBM Plex Sans Thai', Helvetica, Arial, sans-serif",
