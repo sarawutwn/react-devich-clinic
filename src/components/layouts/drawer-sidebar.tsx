@@ -42,7 +42,7 @@ const DrawerSidebar = ({ open, handleClose }: Props) => {
             navigate(e.key);
           }}
         >
-          <Menu.Item key="/admin-dashboard">
+          <Menu.Item key="/">
             <Row className="pointer">
               <AppstoreOutlined
                 style={{
@@ -55,7 +55,7 @@ const DrawerSidebar = ({ open, handleClose }: Props) => {
             </Row>
           </Menu.Item>
 
-          <Menu.Item key="/profile">
+          <Menu.Item key="/customer">
             <Row className="pointer">
               <PieChartOutlined
                 style={{
