@@ -10,19 +10,10 @@ export default function Customers() {
   const [openCreate, setOpenCreate] = useState(false);
   const [ads, setAds] = useState([]);
 
-  useEffect(() => {
-    const fetchAdsList = async () => {
-      axios.get(`${hostname}/api/ads/get-all`).then((response: any) => {
-        console.log(response.data);
-      });
-    };
-    fetchAdsList();
-  }, []);
-
   const handleCreate = async () => {
     try {
       if (ads.length === 0) {
-        const { data } = await axios.get(`${hostname}/api/ads/get-all`);
+        const { data } = await axios.get(`${hostname}/api/promotion/get-all`);
         if (data.status === "success") {
           let result: any = [{ key: "", value: "ไม่ได้มาจาก ads" }];
           for (let item of data.result) {

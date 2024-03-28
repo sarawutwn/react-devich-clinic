@@ -75,7 +75,7 @@ export default function CreateModal({
           />
         )}
       </Stack>
-      <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
+      {/* <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
         <img
           src="/images/310331021_464751455676954_6742359841360873997_n.jpg"
           style={{ width: "50%", borderRadius: "100%" }}
@@ -85,7 +85,7 @@ export default function CreateModal({
         <Typography.Text style={{ textAlign: "center" }}>
           De Vich Clinic
         </Typography.Text>
-      </Stack>
+      </Stack> */}
     </Modal>
   );
 }
