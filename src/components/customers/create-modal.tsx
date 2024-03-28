@@ -61,6 +61,7 @@ export default function CreateModal({
       />
       <Stack direction="column">
         <Typography.Text style={{ fontSize: "11px" }}>ads</Typography.Text>
+        {/* <Sele/ct options={adsList} /> */}
         {adsList.length !== 0 && (
           <AutoComplete
             value={ads}
@@ -74,7 +75,7 @@ export default function CreateModal({
           />
         )}
       </Stack>
-      {/* <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
+      <Stack direction="row" justifyContent="center" sx={{ mt: 2 }}>
         <img
           src="/images/310331021_464751455676954_6742359841360873997_n.jpg"
           style={{ width: "50%", borderRadius: "100%" }}
@@ -84,7 +85,7 @@ export default function CreateModal({
         <Typography.Text style={{ textAlign: "center" }}>
           De Vich Clinic
         </Typography.Text>
-      </Stack> */}
+      </Stack>
     </Modal>
   );
 }

@@ -14,7 +14,7 @@ const MenuHeaders = () => {
           location.pathname === "/" ? "topbar-menu-active" : "topbar-menu"
         }
         icon={<AppstoreOutlined />}
-        onClick={() => navigate("/admin-dashboard")}
+        onClick={() => navigate("/")}
       >
         หน้าหลัก
       </Button>
