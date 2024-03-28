@@ -28,7 +28,7 @@ export default function CreateModal({
         ads_id: ads,
       });
       if (data.status === "success") {
-        toast.success('เพิ่มลูกค้าสำเร็จ')
+        toast.success("เพิ่มลูกค้าสำเร็จ");
         callback();
         handleClose();
       }
@@ -59,11 +59,13 @@ export default function CreateModal({
       />
       <Stack direction="column">
         <Typography.Text style={{ fontSize: "11px" }}>ads</Typography.Text>
-        <Select
-          options={adsList}
-          value={ads}
-          onChange={(value) => setAds(value)}
-        />
+        {adsList.length !== 0 && (
+          <Select
+            value={ads}
+            options={adsList}
+            onChange={(value) => setAds(value)}
+          />
+        )}
       </Stack>
     </Modal>
   );

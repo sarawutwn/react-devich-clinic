@@ -59,7 +59,9 @@ export default function Customers() {
     try {
       const { data } = await axios.get(`${hostname}/api/customer/get-all`);
       if (data.status === "success") {
-        setCustomer(data.result);
+        if (data.result) {
+          setCustomer(data.result);
+        }
       }
     } catch (err) {
       console.log(err);
