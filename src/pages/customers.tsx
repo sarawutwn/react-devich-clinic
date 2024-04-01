@@ -4,11 +4,15 @@ import axios from "axios";
 import { hostname } from "../endpoint";
 import { useEffect, useState } from "react";
 import CreateModal from "../components/customers/create-modal";
+import CreateInvoiceModal from "../components/customers/create-invoice";
 
 export default function Customers() {
   const [customer, setCustomer] = useState([]);
   const [openCreate, setOpenCreate] = useState(false);
   const [ads, setAds] = useState([]);
+  const [invoiceCreate, setInvoiceCreate] = useState("");
+  const [openInvoice, setOpenInvoice] = useState(false);
+  const [adsInvoice, setAdsInvoice] = useState([]);
 
   const handleCreate = async () => {
     try {
@@ -20,12 +24,27 @@ export default function Customers() {
             await result.push({ key: item.ads_id, value: item.ads_name });
           }
           setAds(result);
-          setOpenCreate(true);
         }
       }
+      setOpenCreate(true);
     } catch (err) {
       console.log(err);
     }
+  };
+
+  const handleCreateInvoice = async (customerID: string) => {
+    if (adsInvoice.length === 0) {
+      const { data } = await axios.get(`${hostname}/api/promotion/get-all`);
+      if (data.status === "success") {
+        let result: any = [];
+        for (let item of data.result) {
+          await result.push({ value: item.ads_id, label: item.ads_name });
+        }
+        setAdsInvoice(result);
+      }
+    }
+    setOpenInvoice(true);
+    setInvoiceCreate(customerID);
   };
 
   const handleReading = async (customer_id: string) => {
@@ -133,6 +152,7 @@ export default function Customers() {
                         type="primary"
                         style={{ fontSize: "12px", fontWeight: "bold" }}
                         className="btn-info"
+                        onClick={() => handleCreateInvoice(item.customer_id)}
                       >
                         จอง
                       </Button>,
@@ -202,6 +222,14 @@ export default function Customers() {
         open={openCreate}
         setOpen={setOpenCreate}
         adsList={ads}
+        callback={fetchData}
+      />
+      <CreateInvoiceModal
+        open={openInvoice}
+        setOpen={setOpenInvoice}
+        customerID={invoiceCreate}
+        setCustomerID={setInvoiceCreate}
+        adsList={adsInvoice}
         callback={fetchData}
       />
     </>

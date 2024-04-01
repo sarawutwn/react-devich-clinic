@@ -1,6 +1,6 @@
 import { lazy } from "react";
 import Loadable from "../utils/loadable";
-// import { Layouts } from "../layouts";
+import { Layouts } from "../layouts";
 
 // owner page
 // const Home = Loadable(lazy(() => import("../pages/home")));
@@ -11,13 +11,13 @@ const Routes = () => {
   return [
     {
       path: "/",
-      element: <Customer />,
-      // children: [
-      //   {
-      //     path: "/",
-      //     element: ,
-      //   },
-      // ],
+      element: <Layouts />,
+      children: [
+        {
+          path: "/customer",
+          element: <Customer />,
+        },
+      ],
     },
     {
       path: "*",
