@@ -38,7 +38,7 @@ export default function Customers() {
       if (data.status === "success") {
         let result: any = [];
         for (let item of data.result) {
-          await result.push({ value: item.ads_id, label: item.ads_name });
+          await result.push({ key: item.ads_id, value: item.ads_name });
         }
         setAdsInvoice(result);
       }
@@ -153,6 +153,7 @@ export default function Customers() {
                         style={{ fontSize: "12px", fontWeight: "bold" }}
                         className="btn-info"
                         onClick={() => handleCreateInvoice(item.customer_id)}
+                        disabled={item.customer_status === "จอง"}
                       >
                         จอง
                       </Button>,
@@ -172,14 +173,14 @@ export default function Customers() {
                       >
                         {item.customer_is_active ? "ไม่นับ" : "นับ"}
                       </Button>,
-                      <Button
-                        size="small"
-                        type="primary"
-                        style={{ fontSize: "12px", fontWeight: "bold" }}
-                        className="btn-warning"
-                      >
-                        แก้ไข
-                      </Button>,
+                      // <Button
+                      //   size="small"
+                      //   type="primary"
+                      //   style={{ fontSize: "12px", fontWeight: "bold" }}
+                      //   className="btn-warning"
+                      // >
+                      //   แก้ไข
+                      // </Button>,
                     ]}
                   >
                     <Stack direction="column" spacing={0.5}>
