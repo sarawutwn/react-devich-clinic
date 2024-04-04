@@ -15,10 +15,16 @@ const Routes = () => {
       children: [
         {
           path: "/",
-          element: <Home />
+          element: <Home />,
         },
+      ],
+    },
+    {
+      path: "/customer",
+      element: <Layouts />,
+      children: [
         {
-          path: "/customer",
+          path: "/",
           element: <Customer />,
         },
       ],
