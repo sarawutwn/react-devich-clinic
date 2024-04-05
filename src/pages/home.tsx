@@ -102,7 +102,8 @@ export default function Home() {
               if (item.customer_price - item.customer_pay_amount === 0) {
                 total_pay_invoice += item.customer_price;
               } else {
-                total_pay_invoice +=
+                total_pay_invoice += item.customer_pay_amount;
+                total_pay_invoice_count +=
                   item.customer_price - item.customer_pay_amount;
               }
             }
