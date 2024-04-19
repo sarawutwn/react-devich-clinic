@@ -65,19 +65,21 @@ export default function Home() {
       }
       const res = await axios.get(`${hostname}/api/customer/get-report`);
       if (res.data.status === "success") {
-        for (let item of res.data.result) {
-          let adsData = await ads.filter(
-            (items) => items.name === item.invoice_item_name
-          );
-          if (adsData.length !== 0) {
-            adsData[0].จอง += 1;
-          } else {
-            ads.push({
-              name: item.invoice_item_name,
-              อ่าน: 0,
-              จอง: 1,
-              ไม่อ่าน: 0,
-            });
+        if(res.data.result) {
+          for (let item of res.data.result) {
+            let adsData = await ads.filter(
+              (items) => items.name === item.invoice_item_name
+            );
+            if (adsData.length !== 0) {
+              adsData[0].จอง += 1;
+            } else {
+              ads.push({
+                name: item.invoice_item_name,
+                อ่าน: 0,
+                จอง: 1,
+                ไม่อ่าน: 0,
+              });
+            }
           }
         }
       }
