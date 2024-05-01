@@ -28,6 +28,7 @@ export default function Home() {
   const [showConReport, setShowConReport] = useState("");
 
   const [branchAvg, setBranchAvg] = useState("");
+  const [branchName, setBranchName] = useState("");
   const [branchDuo, setBranchDuo] = useState(0);
   const [branchID, setBranchID] = useState("");
 
@@ -62,6 +63,7 @@ export default function Home() {
         setBranchAvg(response.data.result.branch_avg_today);
         setBranchDuo(response.data.result.branch_duo_amount);
         setBranchID(response.data.result.branch_id);
+        setBranchName(response.data.result.branch_name)
       }
       const res = await axios.get(`${hostname}/api/customer/get-report`);
       if (res.data.status === "success") {
@@ -267,7 +269,17 @@ export default function Home() {
                   textAlign: "center",
                 }}
               >
-                Devich Clinic (สอง)
+                Devich Clinic
+              </Typography.Text>
+              <Typography.Text
+                style={{
+                  fontSize: "15px",
+                  marginLeft: "10px",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                สาขา {branchName}
               </Typography.Text>
               <Typography.Text>ยอดเฉลี่ย</Typography.Text>
               <Input
